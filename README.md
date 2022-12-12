@@ -1,7 +1,4 @@
-# Docker Compose MERN Stack with Nginx example
-
-Dockerize fullstack: React, Nodejs Express and MongoDB (MERN stack application) example using Docker Compose with Nginx.
-
+# Docker Compose appication
 ## Run the System
 We can easily run the whole with only a single command:
 ```bash
