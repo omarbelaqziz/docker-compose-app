@@ -38,7 +38,7 @@ app.get("/", (req, res) => {
   res.json({ message: "The server is up" });
 });
 
-require("./app/routes/turorial.routes")(app);
+require("./app/routes/etudiant.routes")(app);
 
 // set port, listen for requests
 const PORT = 8080;

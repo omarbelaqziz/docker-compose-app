@@ -4,8 +4,10 @@ import TutorialDataService from "../services/tutorial.service";
 export default class Tutorial extends Component {
   constructor(props) {
     super(props);
-    this.onChangeTitle = this.onChangeTitle.bind(this);
-    this.onChangeDescription = this.onChangeDescription.bind(this);
+    this.onChangeNom = this.onChangeNom.bind(this);
+    this.onChangePrenom = this.onChangePrenom.bind(this);
+    this.onChangeFiliere = this.onChangeFiliere.bind(this);
+    this.onChangeAnnee = this.onChangeAnnee.bind(this);
     this.getTutorial = this.getTutorial.bind(this);
     this.updatePublished = this.updatePublished.bind(this);
     this.updateTutorial = this.updateTutorial.bind(this);
@@ -13,10 +15,11 @@ export default class Tutorial extends Component {
 
     this.state = {
       currentTutorial: {
-        id: null,
-        title: "",
-        description: "",
-        published: false
+        iid: null,
+        nom: "",
+        prenom: "", 
+        filiere: "",
+        annee: ""
       },
       message: ""
     };
@@ -26,26 +29,48 @@ export default class Tutorial extends Component {
     this.getTutorial(this.props.match.params.id);
   }
 
-  onChangeTitle(e) {
-    const title = e.target.value;
+  onChangeNom(e) {
+    const nom = e.target.value;
 
     this.setState(function(prevState) {
       return {
         currentTutorial: {
           ...prevState.currentTutorial,
-          title: title
+          nom: nom
         }
       };
     });
   }
 
-  onChangeDescription(e) {
-    const description = e.target.value;
+  onChangePrenom(e) {
+    const prenom = e.target.value;
     
     this.setState(prevState => ({
       currentTutorial: {
         ...prevState.currentTutorial,
-        description: description
+        prenom: prenom
+      }
+    }));
+  }
+
+  onChangeFiliere(e) {
+    const filiere = e.target.value;
+    
+    this.setState(prevState => ({
+      currentTutorial: {
+        ...prevState.currentTutorial,
+        filiere: filiere
+      }
+    }));
+  }
+
+  onChangeAnnee(e) {
+    const annee = e.target.value;
+    
+    this.setState(prevState => ({
+      currentTutorial: {
+        ...prevState.currentTutorial,
+        annee: annee
       }
     }));
   }
@@ -120,35 +145,50 @@ export default class Tutorial extends Component {
       <div>
         {currentTutorial ? (
           <div className="edit-form">
-            <h4>Tutorial</h4>
+            <h4>Etudiant</h4>
             <form>
               <div className="form-group">
-                <label htmlFor="title">Title</label>
+                <label htmlFor="title">Nom</label>
                 <input
                   type="text"
                   className="form-control"
                   id="title"
-                  value={currentTutorial.title}
-                  onChange={this.onChangeTitle}
+                  value={currentTutorial.nom}
+                  onChange={this.onChangeNom}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="description">Description</label>
+                <label htmlFor="description">Prenom</label>
                 <input
                   type="text"
                   className="form-control"
                   id="description"
-                  value={currentTutorial.description}
-                  onChange={this.onChangeDescription}
+                  value={currentTutorial.prenom}
+                  onChange={this.onChangePrenom}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="description">filiere</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="description"
+                  value={currentTutorial.filiere}
+                  onChange={this.onChangeFiliere}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="description">annee</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="description"
+                  value={currentTutorial.annee}
+                  onChange={this.onChangeAnnee}
                 />
               </div>
 
-              <div className="form-group">
-                <label>
-                  <strong>Status:</strong>
-                </label>
-                {currentTutorial.published ? "Published" : "Pending"}
-              </div>
+              
             </form>
 
             {currentTutorial.published ? (

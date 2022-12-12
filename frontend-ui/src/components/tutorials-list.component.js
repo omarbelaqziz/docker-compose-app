@@ -101,22 +101,23 @@ export default class TutorialsList extends Component {
               tutorials.map((tutorial, index) => (
                 <li>
                   <div>
-                    <h4>{tutorial.title}</h4>
+                    <h4>{tutorial.nom} {tutorial.prenom}</h4>
                     <div>
                       <label>
-                        <strong>Description:</strong>
+                        <strong>Filiere:</strong>
                       </label>{" "}
-                      {tutorial.description}
+                      {tutorial.filiere}
                     </div>
                     <div>
                       <label>
-                        <strong>Status:</strong>
+                        <strong>Annee:</strong>
                       </label>{" "}
-                      {tutorial.published ? "Published" : "Pending"}
+                      {tutorial.annee}
                     </div>
+                    
 
                     <Link
-                      to={"/tutorials/" + tutorial.id}
+                      to={"/etudiants/" + tutorial.id}
                       className="badge badge-warning"
                     >
                       Edit

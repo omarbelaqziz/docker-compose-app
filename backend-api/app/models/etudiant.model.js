@@ -1,9 +1,10 @@
 module.exports = mongoose => {
   var schema = mongoose.Schema(
     {
-      title: String,
-      description: String,
-      published: Boolean
+      nom: String,
+      prenom: String,
+      filiere: String,
+      annee: String
     },
     { timestamps: true }
   );
@@ -14,6 +15,6 @@ module.exports = mongoose => {
     return object;
   });
 
-  const Tutorial = mongoose.model("tutorial", schema);
-  return Tutorial;
+  const Etudiant = mongoose.model("etudiant", schema);
+  return Etudiant;
 };

@@ -15,8 +15,8 @@ class App extends Component {
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link to={"/tutorials"} className="nav-link">
-                List des etudiants
+              <Link to={"/etudiants"} className="nav-link">
+                Liste des etudiants
               </Link>
             </li>
             <li className="nav-item">
@@ -29,9 +29,9 @@ class App extends Component {
 
         <div className="container mt-3">
           <Switch>
-            <Route exact path={["/", "/tutorials"]} component={TutorialsList} />
+            <Route exact path={["/", "/etudiants"]} component={TutorialsList} />
             <Route exact path="/add" component={AddTutorial} />
-            <Route path="/tutorials/:id" component={Tutorial} />
+            <Route path="/etudiants/:id" component={Tutorial} />
           </Switch>
         </div>
       </div>
